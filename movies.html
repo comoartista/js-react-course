@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    'use strict';
+    const numberOfFilms = +prompt('How many movies have you watched already?')
+    const personalMovieDB = {
+      count: numberOfFilms,
+      movies: {
+        1: 4,
+        2: 5,
+      },
+      actors: {},
+      genres: [],
+      privat: false,
+    }
+
+    const a = prompt('One of the last movies you watched?');
+    const b = +prompt('How much would you rate him?');
+
+    personalMovieDB.movies[a] = b;
+
+    console.log(personalMovieDB.movies);
+  </script>
+</body>
+
+</html>
