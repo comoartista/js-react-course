@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    let result = '';
+    const length = 7;
+
+    for (let i = 1; i < length; i++) {
+
+      for (let j = 0; j < i; j++) {
+        result += "*"
+      }
+
+      result += '\n';
+
+    }
+    console.log(result)
+
+
+    first: for (let i = 1; i < 3; i++) {
+      console.log(`First level ${i}`)
+      for (let j = 0; j < 3; j++) {
+        console.log(`Second level ${j}`)
+        for (let k = 0; k < 5; k++) {
+          if (k === 2) break first;
+          console.log(`Third level ${k}`)
+        }
+      }
+    }
+
+  </script>
+</body>
+
+</html>
