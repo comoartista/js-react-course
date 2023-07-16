@@ -36,7 +36,7 @@ tabsParent.addEventListener('click', (event) => {
 })
 
 
-//Timer
+// Timer
 const deadline = '2023-09-01'
 
 function getTimerRemaining(endtime) {
@@ -89,3 +89,55 @@ function setClock(selector, endtime)  {
 }
 
 setClock('.timer', deadline)
+
+//Modal 
+const btns = document.querySelectorAll('#btn')
+const modal = document.querySelector('.modal')
+const modalClose= document.querySelector('.modal__close')
+
+function openModal() {
+  modal.style.display = 'block'
+  document.body.style.overflow = 'hidden'
+  // clearInterval(timerId)
+} 
+
+function closeModal() {
+  modal.style.display = 'none'
+  document.body.style.overflow = ''
+}
+
+ btns.forEach(btn => {
+  btn.addEventListener('click', openModal)
+ })
+
+ modalClose.addEventListener('click', closeModal)
+
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    closeModal()
+  }
+})
+
+
+document.addEventListener('keydown' , (e) => {
+  if (e.code === 'Escape' && (modal.style.display = 'block')) {
+    closeModal()
+  }
+})
+
+// const timerId = setTimeout(openModal, 2000)
+
+// window.addEventListener('scroll', () => {
+//   if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1) {
+//     openModal()
+//   }
+// }, {once: true})
+
+function showModalByScroll () {
+  if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1) {
+    openModal()
+    window.removeEventListener('scroll', showModalByScroll)
+  }
+}
+
+window.addEventListener('scroll', showModalByScroll)
